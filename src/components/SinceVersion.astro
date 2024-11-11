@@ -9,9 +9,9 @@ interface Props {
    * version string
    * schema: x.y.z
    * @example
-   *  ```jsx 
+   *  ```jsx
    *    // Valid ✅
-   *    <SinceVersion version="2.1.0" /> 
+   *    <SinceVersion version="2.1.0" />
    *    // Invalid ❌
    *    <SinceVersion version="v2.1.0" />
    *    <SinceVersion>2.1.0</SinceVersion>
@@ -22,7 +22,7 @@ interface Props {
 }
 ---
 
-<span class='not-content'><Icon name='seti:clock' />Since <code>{Astro.props.version}</code></span>
+<span class="not-content"><Icon name="seti:clock" />Since <code>{Astro.props.version}</code></span>
 
 <style>
   span {
@@ -31,10 +31,10 @@ interface Props {
     align-items: center;
     gap: 6px;
     border-radius: 0.5rem;
-    padding: 2px 12px;
+    padding: 2px 12px 2px 12px;
     font-size: small;
     box-shadow: var(--sl-shadow-md);
     background-color: var(--sl-color-bg-inline-code);
-    margin: 0 0 12px;
+    margin: 0 0 12px 0;
   }
 </style>
