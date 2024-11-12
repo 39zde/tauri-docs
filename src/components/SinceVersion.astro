@@ -19,10 +19,33 @@ interface Props {
    *  ```
    */
   version: string;
+  /**
+   * The core library the documented feature belongs to, if applicapbe.
+   * Leave blank if not applicable and define the link manually.
+   */
+  library?: 'tauri' | 'api' | 'rust-cli' | 'js-cli' | 'tauri-bundler' | 'wry' | 'tao';
+  /**
+   * overrides the link to release page
+   *
+   * if the `library` prop is defined, `href` defaults to:
+   * - `${Astro.url.origin}/release/${Astro.props.library}/v${Astro.props.version}`
+   *
+   * if the `library` prop is `undefined`, `href` defaults to:
+   * - defaults to `${Astro.url.origin}/release/tauri/v${Astro.props.version}`
+   */
+  href?: string;
 }
 ---
 
-<a class="not-content" href={`https://github.com/tauri-apps/tauri/releases/tag/tauri-v${Astro.props.version}`} target="_blank"><Icon name="seti:clock" />Since <code>{Astro.props.version}</code></a>
+<a
+  class='not-content'
+  href={Astro.props.href
+    ? Astro.props.href
+    : Astro.props.library
+      ? `${Astro.url.origin}/release/${Astro.props.library}/v${Astro.props.version}`
+      : `${Astro.url.origin}/release/tauri/v${Astro.props.version}`}
+  target='_blank'><Icon name='seti:clock' />Since <code>{Astro.props.version}</code></a
+>
 
 <style>
   a {
