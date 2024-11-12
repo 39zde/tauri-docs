@@ -22,10 +22,10 @@ interface Props {
 }
 ---
 
-<span class="not-content"><Icon name="seti:clock" />Since <code>{Astro.props.version}</code></span>
+<a class="not-content" href={`https://github.com/tauri-apps/tauri/releases/tag/tauri-v${Astro.props.version}`} target="_blank"><Icon name="seti:clock" />Since <code>{Astro.props.version}</code></a>
 
 <style>
-  span {
+  a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -36,5 +36,7 @@ interface Props {
     box-shadow: var(--sl-shadow-md);
     background-color: var(--sl-color-bg-inline-code);
     margin: 0 0 12px 0;
+    color: var(--sl-color-gray-1) !important;
+    text-decoration: none;
   }
 </style>
